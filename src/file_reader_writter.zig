@@ -19,7 +19,7 @@ test "Write bytes to a file (create if necessary, append or replace contents)" {
     try handle.seekFromEnd(0);
 
     // write bytes to the file
-    var buffer_writer = std.io.bufferedWriter(handle.writer());
+    var buffer_writer = std.io.bufferedWriter(handle.writer().any());
     const bytes_written = try buffer_writer.write("hello Zig\n");
 
     try std.testing.expectEqual(@as(usize, 10), bytes_written);
